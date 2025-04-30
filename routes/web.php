@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TaskController;
 
+Route::get('/', function () {
+    return view('sobre');
+})->name('sobre');
+
 /**
  * Rotas de autenticação
  */
@@ -13,19 +17,6 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
 
-/**
- * Página inicial pública (exemplo de página inicial)
- */
-Route::get('/', function () {
-    return view('welcome');
-});
-
-/**
- * Rota de teste (temporária)
- */
-Route::get('teste', function () {
-    return view('teste');
-});
 
 /**
  * Rotas protegidas (somente para usuários logados)
